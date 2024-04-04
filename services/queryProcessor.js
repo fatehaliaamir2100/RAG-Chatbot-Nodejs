@@ -12,9 +12,9 @@ class QueryProcessor {
 
     async processQuery(query, index_name) {
         try { 
-            const client = new MongoClient("mongodb+srv://admin:admin@money-tracker.udgkdwe.mongodb.net/"); //add your MongoDB Atlas connection string
-            const database = client.db("langchain_db"); //add your MongoDB Atlas database name
-            const collection = database.collection("60b9d3c2a1ebca2426e46f36"); //add your MongoDB Atlas collection name
+            const client = new MongoClient(""); //add your MongoDB Atlas connection string
+            const database = client.db(""); //add your MongoDB Atlas database name
+            const collection = database.collection(""); //add your MongoDB Atlas collection name
             const dbConfig = {  
             collection: collection, //add collection here
             indexName: "vector_index", //add Vector Index name
@@ -24,7 +24,7 @@ class QueryProcessor {
             console.log("here>>>>>>>>>>>>>>>>>>>>>", collection)
 
             const embeddings = new OpenAIEmbeddings({ //initializing the OpenAIEmbeddings model
-                openAIApiKey: "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", //add your OpenAI API key here
+                openAIApiKey: "", //add your OpenAI API key here
                 modelName: "text-embedding-3-small" //leave this unchanged
             })
     
@@ -33,7 +33,7 @@ class QueryProcessor {
             const llm = new ChatAnthropic({ //initializing the LLM model
                 modelName: "claude-3-haiku-20240307", //leave this unchanged
                 maxTokens: 1024, //max tokens in the response
-                anthropicApiKey: "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", //add your anthropic API key here
+                anthropicApiKey: "", //add your anthropic API key here
             });
 
             const vectorStore = await new MongoDBAtlasVectorSearch(embeddings, dbConfig); //initializing vector store
