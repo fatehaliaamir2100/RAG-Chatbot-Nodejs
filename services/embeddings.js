@@ -9,9 +9,9 @@ const { RecursiveCharacterTextSplitter } = require("langchain/text_splitter");
 class Embeddings {
     async uploadEmbeddingsToVector(data, index_name) {
         try { 
-            const client = new MongoClient("mongodb+srv://admin:admin@money-tracker.udgkdwe.mongodb.net/"); //add your MongoDB Atlas connection string
-            const database = client.db("langchain_db"); //add your MongoDB Atlas database name
-            const collection = database.collection(index_name); //add your MongoDB Atlas collection name
+            const client = new MongoClient(""); //add your MongoDB Atlas connection string
+            const database = client.db(""); //add your MongoDB Atlas database name
+            const collection = database.collection(""); //add your MongoDB Atlas collection name
             const dbConfig = {  
             collection: collection, //add collection here
             indexName: "vector_index", //add Vector Index name
@@ -20,7 +20,7 @@ class Embeddings {
             };
 
             const embedding_model = new OpenAIEmbeddings({
-                openAIApiKey: "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", //add your OpenAI API Key
+                openAIApiKey: "", //add your OpenAI API Key
                 modelName: "text-embedding-3-small"}) //you can leave this unchanged
             
             let docs = [] //initialize an empty array for the documents
@@ -39,9 +39,9 @@ class Embeddings {
     async uploadEmbeddingsFIleToVector(file_path, index_name) {
         try {
             console.log("here1");
-            const client = new MongoClient("mongodb+srv://admin:admin@money-tracker.udgkdwe.mongodb.net/"); //add your MongoDB Atlas connection string
-            const database = client.db("langchain_db"); //add your MongoDB Atlas database name
-            const collection = database.collection(index_name); //add your MongoDB Atlas collection name
+            const client = new MongoClient(""); //add your MongoDB Atlas connection string
+            const database = client.db(""); //add your MongoDB Atlas database name
+            const collection = database.collection(""); //add your MongoDB Atlas collection name
             const dbConfig = {  
             collection: collection, //add collection here
             indexName: "vector_index", //add Vector Index name
@@ -50,7 +50,7 @@ class Embeddings {
             };
 
             const embedding_model = new OpenAIEmbeddings({
-                openAIApiKey: "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", //add your OpenAI API Key
+                openAIApiKey: "", //add your OpenAI API Key
                 modelName: "text-embedding-3-small"}) //You can leave this unchanged
 
             const data = await fs.readFileSync(file_path, { encoding: 'utf8' }); // Read file asynchronously with encoding option
